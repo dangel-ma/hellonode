@@ -8,6 +8,9 @@ node {
     }
 
     stage('Build image') {
+        agent { 
+                label 'dockerbuild'
+        }
         /* This builds the actual image; synonymous to
          * docker build on the command line */
 
@@ -15,6 +18,9 @@ node {
     }
 
     stage('Test image') {
+        agent { 
+                label 'dockerbuild'
+        }
         /* Ideally, we would run a test framework against our image.
          * For this example, we're using a Volkswagen-type approach ;-) */
 
